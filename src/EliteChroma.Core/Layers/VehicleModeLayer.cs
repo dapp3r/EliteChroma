@@ -20,7 +20,7 @@ namespace EliteChroma.Core.Layers
         {
             Combat,
             Analysis,
-            LandingGear,
+            Landing,
         }
 
         public override int Order => 600;
@@ -37,7 +37,7 @@ namespace EliteChroma.Core.Layers
             VehicleMode mode;
             if (Game.Status.HasFlag(Flags.LandingGearDeployed))
             {
-                mode = VehicleMode.LandingGear;
+                mode = VehicleMode.Landing;
             }
             else if (Game.Status.HasFlag(Flags.HudInAnalysisMode))
             {
@@ -85,9 +85,9 @@ namespace EliteChroma.Core.Layers
                 case VehicleMode.Analysis:
                     c = Game.Colors.AnalysisMode;
                     break;
-                case VehicleMode.LandingGear:
+                case VehicleMode.Landing:
                 default:
-                    c = Color.Blue;
+                    c = Colors.FlightLandingMode;
                     break;
             }
 
